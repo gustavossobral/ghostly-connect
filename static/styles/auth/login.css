@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --cor-fundo-principal: #0A1F44;
+    --cor-detalhe-sutil: #E5E8EB;
+    --cor-titulo: #223A5E;
+    --cor-texto: #B0B8C1;
+    --cor-link-hover: #8F9CE0;
+    --cor-botao-verde: #BAE19D;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-titulo);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    border-radius: 2rem;
+    background-color: var(--cor-texto);
+    width: 50%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content .image {
+    background-color: var(--cor-detalhe-sutil);
+    height: 100%;
+    width: 40%;
+    border-radius: 2rem 0 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .image img {
+    margin-top: 2rem;
+    width: 15rem;
+    height: 15rem;
+}
+
+.content .info {
+    width: 60%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin: 2rem;
+}
+.content .info .title {
+    text-align: center;
+    margin: 1rem 0 1rem 0
+}
+
+.content .info .info-inputs {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.div-username, .div-password {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.content .info .info-inputs label {
+    font-size: 0.8rem;
+}
+
+.content .info .info-inputs .input-box {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.content .info .info-inputs .input-box:focus {
+    outline: none;
+}
+
+.info .login-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.info .login-btn .button {
+    padding: 0.5rem;
+    width: 70%;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: 0.2s linear;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    background-color: whitesmoke;
+    font-size: 1rem;
+}
+
+.info .login-btn .button:hover {
+    background-color: var(--cor-botao-verde);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.info .login-btn .button a {
+    text-decoration: none;
+    color: black;
+}
+
+@media (max-width:700px) {
+    .content {
+        flex-direction: column;
+        width: 85%;
+        height: 60%;
+    }
+    .content .image {
+        width: 100%;
+        border-radius: 2rem 2rem 0 0;
+        height: 30%;
+    }
+}

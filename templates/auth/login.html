@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GC</title>
+    <link rel="stylesheet" href="{% static 'styles/auth/login.css' %}">
+</head>
+
+<body>
+    <div class="content">
+        <div class="image">
+            <img src="{% static 'assets/gc-logo.png' %}" alt="logo Ghostly Connect">
+        </div>
+        <div class="info">
+            <div>
+                <h1 class="title">Login</h1>
+            </div>
+            <form action="{% url 'login'%}" method="POST"> {% csrf_token %}
+                <div class="info-inputs">
+                    <div class="div-username">
+                        <label for="username">Nome de Usuário</label>
+                        <input class="input-box" type="text" id="username" name="username" required>
+                    </div>
+                    <div class="div-password">
+                        <label for="password">Senha</label>
+                        <input class="input-box" type="password" id="password" name="senha" required>
+                    </div>    
+                </div>
+                <div class="login-btn">
+                    <button class="button" type="submit">Login</button>
+                </div>
+                <div class="login-btn">
+                    <a href="{% url "cadastro" %}" class="button">Cadastre-se</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% if error_message %}
+<script>
+    alert("{{ error_message }}");
+</script>
+{% endif %}
+</body>
+
+</html>
