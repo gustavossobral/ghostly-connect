@@ -1,0 +1,8 @@
+from django import forms
+from . import models
+
+class PostagemForm(forms.ModelForm):
+    class Meta:
+        model = models.Postagens
+        fields = ['titulo', 'conteudo']
+        

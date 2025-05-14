@@ -11,26 +11,18 @@ def login_view(request):
     form = forms.LoginForm(request.POST)
     error_message = None
     if request.method == 'POST':
-        print("Método POST detectado. Processando os dados do formulário...")
         if form.is_valid():
-            print("Formulário válido. Processando os dados...")
             username = form.cleaned_data['username']
             senha = form.cleaned_data['senha']
-            print(f"Username: {username}, Senha: {senha}")
             user = authenticate(request, username=username, password=senha)
 
             if user is not None:
-                print("Usuário autenticado com sucesso.")
                 login(request, user)
-                return HttpResponse("Login realizado com sucesso!")
+                return redirect('home')
             else:
-                print("Falha na autenticação. Verifique o nome de usuário e a senha.")
-                print(User.objects.all())
                 error_message = 'Nome de usuário ou senha inválidos. Por favor, tente novamente.'
-        else:
-            print("Formulário inválido. Verifique os dados inseridos.")
             
-    return render(request, 'auth/login.html')
+    return render(request, 'auth/login.html', {'error_message': error_message})
 
 def cadastro_view(request):
     cpf_validator = CPF()
@@ -38,7 +30,6 @@ def cadastro_view(request):
     error_message = None
     if request.method == 'POST':
         if form.is_valid():
-            print("Formulário válido. Processando os dados...")
             nome = form.cleaned_data['nome'].title()
             username = form.cleaned_data['username']
             data_nascimento = form.cleaned_data['data_nascimento']

@@ -111,6 +111,7 @@ body {
     color: black;
     display: inline-block;
     background-color: whitesmoke;
+    font-size: 1rem;
 }
 
 .info .login-btn .button:hover {
