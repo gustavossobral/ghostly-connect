@@ -32,6 +32,8 @@ const commentField = document.querySelector('.comment-field');
 const commentIcon = document.getElementById('comment-icon');
 const reportField = document.querySelector('.report-field');
 const reportIcon = document.getElementById('report-icon');
+const seeField = document.querySelector('.see-field');
+const seeIcon = document.getElementById('eye-icon');
 
 commentIcon.addEventListener('mouseover', () => {
     if (!commentField.querySelector('p')) {
@@ -77,8 +79,29 @@ reportIcon.addEventListener('mouseout', () => {
     }
 });
 
-//Comment-Page
+seeIcon.addEventListener('mouseover', () => {
+    if (!seeField.querySelector('p')) {
+        const seeIconText = document.createElement('p');
+        seeIconText.innerText = 'Visualizar';
+        seeIconText.classList.add('visible');
+        seeField.appendChild(seeIconText);
+        setTimeout(() => {
+            seeIconText.classList.add('visible');
+        }, 10);
+    }
+});
 
+seeIcon.addEventListener('mouseout', () => {
+    const seeIconText = seeField.querySelector('p');
+    if (seeIconText) {
+        seeIconText.classList.remove('visible');
+        setTimeout(() => {
+            seeIconText.remove();
+        }, 300);
+    }
+});
+
+//Comment-Page
 commentIcon.addEventListener('click', () => {
     body.classList.add('active', 'no-scroll');
     body.style.zIndex = 98;

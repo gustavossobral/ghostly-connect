@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --cor-fundo-principal: #0A1F44;
+    --cor-detalhe-sutil: #E5E8EB;
+    --cor-titulo: #223A5E;
+    --cor-texto: #B0B8C1;
+    --cor-link-hover: #8F9CE0;
+    --cor-botao-verde: #BAE19D;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--cor-titulo);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-button-side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.button-side-bar {
+    position: fixed;
+    height: 100%;
+    background-color: var(--cor-texto);
+    border: none;
+    z-index: 6;
+    transition: 0.3s linear;
+    cursor: pointer;
+}
+
+i.active {
+    display: inline-block;
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.button-side-bar.active {
+    left: 17.5rem;
+}
+
+.side-bar {
+    position: fixed;
+    left: -30rem;
+    top: 0;
+    width: 20rem;
+    height: 100%;
+    background-color: var(--cor-detalhe-sutil);
+    z-index: 5;
+    transition: 0.02s linear;
+}
+
+.side-bar.active {
+    left: -2.5rem;
+}
+
+.side-bar ul {
+    list-style-type: none;
+    padding-top: 6rem;
+    margin-left: 2rem;
+}
+
+.side-bar ul li {
+    padding: 0.5rem 1.5rem;
+    transition: 0.15s linear;
+}
+
+.side-bar ul li:hover {
+    background-color: var(--cor-texto);
+}
+
+.side-bar ul li a {
+    text-decoration: none;
+    color: var(--cor-fundo-principal);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 80%;
+    height: 80%;
+    padding: 1rem;
+    background-color: var(--cor-texto);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+}
+
+.content .text-field {
+    width: 70%;
+    height: 100%;
+    border-radius: 0.5rem;
+    background-color: var(--cor-detalhe-sutil);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content .text-field .post-title {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.content .text-field textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--cor-detalhe-sutil);
+    border: none;
+    height: 90%;
+    resize: none;
+    border-radius: 1rem;
+    box-sizing: border-box;
+}
+
+.content .text-field textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.content .text-field textarea:focus {
+    outline: none;
+    border: none;
+}
+
+.content .comments-field {
+    width: 30%;
+    height: 100%;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.content .comments-field .comments-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    height: 5%
+}
+
+.content .comments-field .comment {
+    height: 85%;
+    overflow-y: auto;
+}
+
+.content .comments-field .comment::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content .comments-field .comment::-webkit-scrollbar-thumb {
+    background-color: #0A1F44;
+    border-radius: 4px;
+}
+
+.content .comments-field .comment::-webkit-scrollbar-track {
+    background-color: var(--cor-detalhe-sutil);
+}
+
+.content .comments-field .comment ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.content .comments-field .comment ul li {
+    background-color: var(--cor-detalhe-sutil);
+    padding: 0.2rem 1rem;
+    font-size: 0.8rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    border-radius: 0.2rem;
+}
+
+.content .comments-field .icons-field {
+    height: 10%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .comments-field .icons-field a {
+    text-decoration: none;
+    color: black;
+}
+
+.content .comments-field .icons-field a:hover {
+    transform: scale(1.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+body.active {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+body.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 22;
+    pointer-events: all;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+#comment-page {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 50%;
+    width: 50%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    z-index: 99;
+    left: -100%;
+}
+
+#comment-page.active {
+    left: 25%;
+}
+.comment-page {
+    background-color: var(--cor-link-hover);
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.comment-page form {
+    width: 100%;
+    height: 100%;
+}
+
+.comment-page-text {
+    height: 80%;
+    width: 100%;
+}
+
+.comment-page-text textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+    padding: 0.5rem;
+    resize: none;
+    outline: none;
+}
+
+.comment-page-buttons {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-page-buttons button {
+    width: 45%;
+    height: 70%;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    transition: 0.2s linear;
+    cursor: pointer;
+}
+
+.comment-page-buttons #comentar:hover {
+    background-color: var(--cor-botao-verde);
+}
+
+.comment-page-buttons #voltar:hover {
+    background-color: #d36363;
+}
+
+.comment-page-buttons button a {
+    color: #000;
+}

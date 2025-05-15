@@ -154,6 +154,7 @@ i.active {
     left: -200%;
     background-color: var(--cor-link-hover);
     transform: translate(-50%, -50%);
+    opacity: 0;
     visibility: hidden;
     z-index: 99;
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -162,6 +163,7 @@ i.active {
 .div-post.active {
     left: 50%;
     visibility: visible;
+    opacity: 1;
 }
 
 #post-text-field {
@@ -303,14 +305,15 @@ i.active {
 }
 
 .comment-field,
-.report-field {
+.report-field,
+.see-field {
     position: relative; 
     overflow: visible;
-    
 }
 
 .comment-field p,
-.report-field p {
+.report-field p,
+.see-field p {
     position: absolute;
     top: 100%;
     left: 50%;
@@ -327,7 +330,8 @@ i.active {
 }
 
 .comment-field p.visible,
-.report-field p.visible {
+.report-field p.visible,
+.see-field p.visible {
     opacity: 1;
     transform: translateX(-50%) translateY(5px);
 }
