@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from postagens.models import Postagens
+from postagens.models import Postagens, Comentarios
 
 def home(request):
     error_message = None

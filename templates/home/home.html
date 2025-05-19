@@ -16,8 +16,8 @@
     </div>
     <nav class="side-bar">
         <ul>
-            <li><a href="#"><i class="bi bi-house"></i>Página Inicial</a></li>
-            <li><a href="#"><i class="bi bi-plus-circle"></i>Fazer Publicação</a></li>
+            <li><a href="{% url 'home' %}"><i class="bi bi-house"></i>Página Inicial</a></li>
+            <li id='fazer_publicacao'><a href="#"><i class="bi bi-plus-circle"></i>Fazer Publicação</a></li>
             <li><a href="#"><i class="bi-file-earmark-text"></i>Suas Publicações</a></li>
             <li><a href="#"><i class="bi bi-envelope"></i>Contato</a></li>
         </ul>
@@ -32,9 +32,6 @@
                     <textarea id="post-text" readonly>{{ post.conteudo }}</textarea>
                 </div>
                 <div class="cards-icons">
-                    <div class="comment-field">
-                        <a href="#" id="comment-icon"><i class="bi bi-chat"></i></a>
-                    </div>
                     <div class="report-field">
                         <a href="#" id="report-icon"><i class="bi bi-flag"></i></a>
                     </div>
@@ -54,19 +51,6 @@
                     <button type="submit" class="post-button-submit">Publicar</button>
                 </div>
             </form>
-        </div>
-        <div id="comment-page">
-            <div class="comment-page">
-                <form action="#" method="POST"> {% csrf_token %}
-                    <div class="comment-page-text">
-                        <textarea placeholder="Digite seu comentário..."></textarea>
-                    </div>
-                    <div class="comment-page-buttons">
-                        <button id="comentar" type="submit">Comentar</button>
-                        <button id="voltar" type="button">Voltar</button>
-                    </div>
-                </form>
-            </div>
         </div>
     </main>
     <div class="button-content">
