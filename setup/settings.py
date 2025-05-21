@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'usuario',
     'home',
     'postagens',
+    'reports',
 ]
 
 MIDDLEWARE = [

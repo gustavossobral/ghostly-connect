@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static "styles/report/report.css" %}">
+    <title>Reportar - GC</title>
+</head>
+<body>
+    <main>
+        <h1>Reportar postagem</h1>
+        <div>
+            <div class="content">
+                <div class="post-content">
+                    <label for="post-title">Título da publicação:</label>
+                    <input id="post-title" type="text" value="{{ post.titulo }}" readonly>
+                    <label for="post-text">Conteúdo da publicação:</label>
+                    <textarea name="#" id="post-text" readonly>{{ post.conteudo }}</textarea>
+                </div>
+                <div class="report-area">
+                    <form action="{% url 'reportar_postagem' post.id %}" method="POST"> {% csrf_token %}
+                        <label for="report-reason">Motivo da denúncia</label>
+                        <textarea name="motivo" id="report-reason"></textarea>
+                        <button type="submit">Enviar Denuncia</button>
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </main>
+    <div class="button-content">
+        <button class="button-add" onclick="window.location.href='{% url 'home' %}'">
+            <i class="bi bi-plus-circle"></i>
+        </button>
+    </div>
+</body>
+</html>

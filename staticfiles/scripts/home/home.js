@@ -10,6 +10,7 @@ buttonSideBar.addEventListener('click', () => {
 })
 
 // Add Post Button
+const sideBarButton = document.getElementById('fazer_publicacao');
 const buttonAddPostagem = document.querySelector('.button-add');
 const iconAdd = document.querySelector('.button-content');
 const iconAddI = buttonAddPostagem.querySelector('i');
@@ -27,35 +28,22 @@ buttonAddPostagem.addEventListener('click', () => {
     }
 });
 
+sideBarButton.addEventListener('click', () => {
+    body.classList.toggle('active');
+    iconAddI.classList.toggle('active');
+    divPost.classList.toggle('active');
+    if (iconAddI.classList.contains('active')) {
+        iconAdd.style.zIndex = 30;
+    } else {
+        iconAdd.style.zIndex = 21;
+    }
+});
+
 // Icon Report and Comment
-const commentField = document.querySelector('.comment-field');
-const commentIcon = document.getElementById('comment-icon');
 const reportField = document.querySelector('.report-field');
 const reportIcon = document.getElementById('report-icon');
 const seeField = document.querySelector('.see-field');
 const seeIcon = document.getElementById('eye-icon');
-
-commentIcon.addEventListener('mouseover', () => {
-    if (!commentField.querySelector('p')) {
-        const commentIconText = document.createElement('p');
-        commentIconText.innerText = 'Comentar';
-        commentIconText.classList.add('visible');
-        commentField.appendChild(commentIconText);
-        setTimeout(() => {
-            commentIconText.classList.add('visible');
-        }, 10);
-    }
-});
-
-commentIcon.addEventListener('mouseout', () => {
-    const commentIconText = commentField.querySelector('p');
-    if (commentIconText) {
-        commentIconText.classList.remove('visible');
-        setTimeout(() => {
-            commentIconText.remove();
-        }, 300);
-    }
-});
 
 reportIcon.addEventListener('mouseover', () => {
     if (!reportField.querySelector('p')) {
@@ -99,19 +87,4 @@ seeIcon.addEventListener('mouseout', () => {
             seeIconText.remove();
         }, 300);
     }
-});
-
-//Comment-Page
-commentIcon.addEventListener('click', () => {
-    body.classList.add('active', 'no-scroll');
-    body.style.zIndex = 98;
-    const commentPage = document.getElementById('comment-page');
-    commentPage.classList.add('active');
-
-    const buttonVoltar = document.getElementById('voltar');
-    buttonVoltar.addEventListener('click', () => {
-        body.classList.remove('active', 'no-scroll');
-        body.style.zIndex = 1;
-        commentPage.classList.remove('active');
-    });
 });

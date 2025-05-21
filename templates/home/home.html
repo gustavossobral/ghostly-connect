@@ -33,7 +33,7 @@
                 </div>
                 <div class="cards-icons">
                     <div class="report-field">
-                        <a href="#" id="report-icon"><i class="bi bi-flag"></i></a>
+                        <a href="{% url 'reportar_postagem' post.id %}" id="report-icon"><i class="bi bi-flag"></i></a>
                     </div>
                     <div class="see-field">
                         <a href="{% url 'visualizar_postagem' post.id %}" id="eye-icon"><i class="bi bi-eye"></i></a>

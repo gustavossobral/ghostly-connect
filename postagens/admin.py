@@ -1,3 +1,5 @@
 from django.contrib import admin
+from postagens.models import Postagens
 
-# Register your models here.
+
+admin.site.register(Postagens)
