@@ -46,18 +46,18 @@
                 </div>
             </div>
             <div id="comment-page">
-            <div class="comment-page">
-                <form action="{% url 'enviar_comentario' post.id %}" method="POST"> {% csrf_token %}
-                    <div class="comment-page-text">
-                        <textarea placeholder="Digite seu comentário..." name='conteudo'></textarea>
-                    </div>
-                    <div class="comment-page-buttons">
-                        <button id="comentar" type="submit" id="comment-icon">Comentar</button>
-                        <button id="voltar" type="button">Voltar</button>
-                    </div>
-                </form>
+                <div class="comment-page">
+                    <form action="{% url 'enviar_comentario' post.id %}" method="POST"> {% csrf_token %}
+                        <div class="comment-page-text">
+                            <textarea placeholder="Digite seu comentário..." name='conteudo'></textarea>
+                        </div>
+                        <div class="comment-page-buttons">
+                            <button id="comentar" type="submit" id="comment-icon">Comentar</button>
+                            <button id="voltar" type="button">Voltar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
         </div>
     </main>
     <script src="{% static 'scripts/postagens/post.js'%}"></script>
