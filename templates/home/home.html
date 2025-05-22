@@ -9,23 +9,11 @@
     <title>Home - GC</title>
 </head>
 <body>
-    <div class="div-button-side-bar">
-        <button class="button-side-bar">
-            <i class="bi bi-chevron-compact-right"></i>
-        </button>
-    </div>
-    <nav class="side-bar">
-        <ul>
-            <li><a href="{% url 'home' %}"><i class="bi bi-house"></i>Página Inicial</a></li>
-            <li id='fazer_publicacao'><a href="#"><i class="bi bi-plus-circle"></i>Fazer Publicação</a></li>
-            <li><a href="{% url 'suas_publicacoes' %}"><i class="bi-file-earmark-text"></i>Suas Publicações</a></li>
-            <li><a href="#"><i class="bi bi-envelope"></i>Contato</a></li>
-            <li><a href="#"><i class="bi bi-box-arrow-left"></i>Sair</a></li>
-        </ul>
-    </nav>
+    {% include "partials/sidebar.html" %}
     <div class="add-post"></div>
     <main class="content">
         <h1>Página principal</h1>
+        {% if user.is_authenticated %}
         <div class="cards-container">
             {% if postagens %}
             {% for post in postagens %}
@@ -49,6 +37,7 @@
             </div>
             {% endif %}
         </div>
+        {% endif %}
         <div class="div-post">
             <form action="{% url 'postar'%}" method="POST"> {% csrf_token %}
                 <h2>Adicionar Publicação</h2>

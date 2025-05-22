@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from . import forms
 from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse
 
 def login_view(request):
     form = forms.LoginForm(request.POST)
@@ -74,6 +73,6 @@ def cadastro_view(request):
 
     return render(request, 'auth/cadastro.html', {'form': form, 'error_message': error_message})
 
-def logout(request):
+def logout_view(request):
     logout(request)
-    return redirect('auth/login.html')
+    return redirect('login')
