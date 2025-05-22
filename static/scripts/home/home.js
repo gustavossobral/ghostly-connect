@@ -154,7 +154,7 @@ deleteButtons.forEach(button => {
 // Confirmar a exclusão
 confirmDeleteButton.addEventListener('click', () => {
     if (postIdToDelete) {
-        window.location.href = `/home/excluir_postagem/${postIdToDelete}/`;
+        window.location.href = `/excluir_postagem/${postIdToDelete}/`;
     }
 });
 

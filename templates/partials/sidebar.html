@@ -8,7 +8,24 @@
         <li><a href="{% url 'home' %}"><i class="bi bi-house"></i>Página Inicial</a></li>
         <li id='fazer_publicacao'><a href="#"><i class="bi bi-plus-circle"></i>Fazer Publicação</a></li>
         <li><a href="{% url 'suas_publicacoes' %}"><i class="bi-file-earmark-text"></i>Suas Publicações</a></li>
-        <li><a href="#"><i class="bi bi-envelope"></i>Contato</a></li>
+        <li><a href="#" class='alert-btn'><i class="bi bi-envelope"></i>Contato</a></li>
         <li><a href="{% url 'logout' %}"><i class="bi bi-box-arrow-left"></i>Sair</a></li>
     </ul>
 </nav>
+
+
+{% comment %} Script de Contato {% endcomment %}
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const alertButton = document.querySelector('.alert-btn');
+        if (alertButton) {
+            alertButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Entre em contato pelo email: gustassobral@gmail.com');
+            });
+        } else {
+            console.warn("Botão de contato não encontrado.");
+        }
+    });
+</script>

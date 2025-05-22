@@ -17,8 +17,8 @@ def suas_publicacoes(request):
     postagens = Postagens.objects.filter(autor=request.user).order_by('-data_postagem')
     return render(request, 'home/userposts.html', {'error_message': error_message,'postagens': postagens})
 
-def excluir_postagem(request, postagem_id):
-    postagem = get_object_or_404(Postagens, id=postagem_id)
+def excluir_postagem(request, post_id):
+    postagem = get_object_or_404(Postagens, id=post_id)
     postagem.delete()      
-    return redirect('suas_publicacoes')
+    return redirect('home')
     
